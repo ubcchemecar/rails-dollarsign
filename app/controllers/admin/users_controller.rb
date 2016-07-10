@@ -11,7 +11,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def require_permission
-    if !current_user.admin?
+    if !current_user.try(:admin?)
       redirect_to_back
       flash[:alert] = "Get out, you do not have permission to view users."
     end
