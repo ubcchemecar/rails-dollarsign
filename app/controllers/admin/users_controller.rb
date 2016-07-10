@@ -17,13 +17,13 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  # def index
-  #   if params[:approved] == "false"
-  #     @users = User.where(approved: false)
-  #   else
-  #     @users = User.all
-  #   end    
-  # end
+  def index
+    if params[:approved] == "false"
+      @users = User.where(approved: false)
+    else
+      @users = User.all
+    end    
+  end
 
   def show
   end
@@ -34,7 +34,7 @@ class Admin::UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to [:admin, @user], notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
