@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  # before_action :require_permission
+  before_action :require_permission
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def redirect_to_back(default = records_path)
@@ -13,7 +13,7 @@ class Admin::UsersController < ApplicationController
   def require_permission
     if !current_user.admin?
       redirect_to_back
-      flash[:alert] = "You do not have permission to view users."
+      flash[:alert] = "Get out, you do not have permission to view users."
     end
   end
 

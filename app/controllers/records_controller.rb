@@ -21,7 +21,17 @@ class RecordsController < ApplicationController
   # GET /records
   # GET /records.json
   def index
-    @records = Record.all
+    if params[:status] == "pending"
+      @records = Record.pending
+    elsif params[:status] == "reviewed"
+      @records = Record.reviewed
+    elsif params[:status] == "approved"
+      @records = Record.approved      
+    elsif params[:status] == "rejected"
+      @records = Record.rejected     
+    else
+      @records = Record.all
+    end
   end
 
   # GET /records/1

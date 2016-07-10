@@ -1,9 +1,16 @@
-<h1>Records</h1>
-<br>
-
-<%= link_to 'Request Item', new_record_path %>
-
+<h1>Records | <small><%= link_to 'Request Item', new_record_path %></small></h1>
 <hr>
+
+<p>
+Show: 
+<%= link_to 'All Items', action:"index" %> | 
+<span class="bg-warning"><%= link_to 'Pending', action:"index", status: 'pending' %></span> |
+<span class="bg-info"><%= link_to 'Reviewed', action:"index", status: 'reviewed' %></span> |
+<span class="bg-success"><%= link_to 'Approved', action:"index", status: 'approved' %></span> |
+<span class="bg-danger"><%= link_to 'Rejected', action:"index", status: 'rejected' %></span>
+</p>
+
+<br>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -11,10 +18,9 @@
       <th>Date</th>
       <th>Requested By</th>
       <th>Description</th>
-      <th>Unit Price</th>
-      <th>Quantity</th>
+      <th>Category</th>
       <th>Supplier</th>
-      <th>Link</th>
+      <th>Total Price</th>
       <th>Status</th>
       <th colspan="3"></th>
     </tr>
@@ -27,15 +33,14 @@
         <td><%= record.created_at.strftime("%d %b %Y") %></td>
         <td><%= record.user_name %></td>
         <td><%= record.description %></td>
-        <td><%= number_to_currency(record.price) %></td>
-        <td><%= record.quantity %></td>
+        <td><%= record.category.capitalize %></td>
         <td><%= record.supplier %></td>
-        <td><%= record.link %></td>
+        <td><%= number_to_currency(record.price*record.quantity) %></td>
         <td>
         <% if record.status == "pending" %>
           <p class="bg-warning">
         <% elsif record.status == "reviewed" %>
-          <p class="bg-primary">
+          <p class="bg-info">
         <% elsif record.status == "approved" %>
           <p class="bg-success">
         <% elsif record.status == "rejected" %>
@@ -44,7 +49,7 @@
         <%= record.status.capitalize %></p>
         </td>
         <td>
-          <%= link_to 'Details', record %></p>
+          <b><%= link_to 'Details', record %></b>
         </td>
       </tr>
     <% end %>
