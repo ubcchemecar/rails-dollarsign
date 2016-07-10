@@ -18,3 +18,4 @@
 
 .env
 /config/initializers/secrets.rb
+/config/facebook.yml
