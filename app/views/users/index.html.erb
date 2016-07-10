@@ -1,0 +1,37 @@
+<h1>Users</h1>
+<br>
+
+<%= link_to 'All Users', action:"index" %> | 
+<%= link_to 'Users Awaiting Approval', action:"index", approved:"false" %>
+
+<hr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Approved</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+        <% if user.approved == "true" %>
+          <p class="bg-success">
+        <% elsif user.approved == "false" %>
+          <p class="bg-danger">
+        <% end %>
+        <%= user.approved %></p>
+        </td>
+        <td>
+        <%= link_to "Edit", user %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
