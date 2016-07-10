@@ -55,7 +55,7 @@
   <%= @record.updated_at.strftime("%d %b %Y at %H:%M:%S") %>
 </p>
 
-<% if current_user.id == @record.user_id %>
+<% if current_user.id == @record.user_id or current_user.admin? %>
   <%= link_to 'Edit', edit_record_path(@record) %> |
 <% end %>
 

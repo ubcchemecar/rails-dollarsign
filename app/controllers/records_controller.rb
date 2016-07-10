@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
   before_action :set_record, only: [:show, :edit, :update, :destroy]
   before_action :require_permission, only: [:update, :edit]
 
@@ -21,6 +21,7 @@ class RecordsController < ApplicationController
   # GET /records
   # GET /records.json
   def index
+    @total_expenses = Record.sum("quantity*price")
     if params[:status] == "pending"
       @records = Record.pending
     elsif params[:status] == "reviewed"
