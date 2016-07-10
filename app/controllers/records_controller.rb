@@ -1,6 +1,23 @@
 class RecordsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_record, only: [:show, :edit, :update, :destroy]
+  before_action :require_permission, only: [:update, :edit]
 
+  def redirect_to_back(default = records_path)
+    if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+      redirect_to :back
+    else
+      redirect_to default
+    end
+  end
+
+  def require_permission
+    if !current_user.admin? and current_user.id != @record.user_id
+      redirect_to_back
+      flash[:alert] = "You do not have permission to edit this record."
+    end
+  end
+  
   # GET /records
   # GET /records.json
   def index
@@ -25,6 +42,8 @@ class RecordsController < ApplicationController
   # POST /records.json
   def create
     @record = Record.new(record_params)
+    @record.user_id = current_user.id
+    @record.status = 'pending'
 
     respond_to do |format|
       if @record.save
