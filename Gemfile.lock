@@ -54,6 +54,8 @@ GEM
       capistrano (~> 3.1)
       sshkit (~> 1.2)
     capistrano-harrow (0.5.2)
+    capistrano-postgresql (4.2.1)
+      capistrano (>= 3.0)
     capistrano-rails (1.1.7)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -128,6 +130,7 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
+    pg (0.18.4-x86-mingw32)
     pkg-config (1.1.7)
     puma (3.4.0)
     rack (1.6.4)
@@ -210,6 +213,7 @@ DEPENDENCIES
   byebug
   capistrano
   capistrano-bundler
+  capistrano-postgresql (~> 4.2.0)
   capistrano-rails
   capistrano-rvm
   capistrano3-puma
@@ -218,6 +222,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-facebook
+  pg
   puma
   rails (= 4.2.5.1)
   sass-rails (~> 5.0)
