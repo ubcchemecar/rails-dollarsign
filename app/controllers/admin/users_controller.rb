@@ -1,4 +1,5 @@
-class UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
+  # before_action :require_permission
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def redirect_to_back(default = records_path)
@@ -16,13 +17,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-    if params[:approved] == "false"
-      @users = User.where(approved: false)
-    else
-      @users = User.all
-    end    
-  end
+  # def index
+  #   if params[:approved] == "false"
+  #     @users = User.where(approved: false)
+  #   else
+  #     @users = User.all
+  #   end    
+  # end
 
   def show
   end
