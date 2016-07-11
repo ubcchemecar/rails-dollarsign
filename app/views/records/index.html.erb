@@ -7,19 +7,19 @@
  <%= button_to "Export As CSV", {action: "index", format:"csv"}, method:"get", class:"btn btn-primary pull-right" %>
   <div class="col-lg-3">
     <div class="panel panel-info">
-      <div class="panel-heading">Expenses</div>
+      <div class="panel-heading">Expenses ($CAD)</div>
       <div class="panel-footer"><%= number_to_currency(@total_expenses) %></div>
     </div>
   </div>
   <div class="col-lg-3">
     <div class="panel panel-danger">
-      <div class="panel-heading">Revenue</div>
+      <div class="panel-heading">Revenue ($CAD)</div>
       <div class="panel-footer"><%= number_to_currency(@total_expenses) %></div>
     </div>
   </div>
   <div class="col-lg-3">
     <div class="panel panel-success">
-      <div class="panel-heading">Balance</div>
+      <div class="panel-heading">Balance ($CAD)</div>
       <div class="panel-footer"><%= number_to_currency(@total_expenses) %></div>
     </div>
   </div>    
@@ -45,7 +45,7 @@ Show:
       <th>Description</th>
       <th>Category</th>
       <th>Supplier</th>
-      <th>Total Price</th>
+      <th>Total Price ($CAD)</th>
       <th>Status</th>
       <th colspan="3"></th>
     </tr>

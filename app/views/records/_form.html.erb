@@ -24,7 +24,7 @@
     <%= f.select :category, Record.categories.keys %>
   </div>  
   <div class="field">
-    <%= f.label :price %><br>
+    <%= f.label "Unit Price ($CAD)" %><br>
     <%= f.number_field :price, :class => 'text_field', :step => 0.01 %>
   </div>
   <div class="field">
