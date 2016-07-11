@@ -34,9 +34,21 @@
 </p>
 
 <p>
+  <strong>Total Price:</strong>
+  <%= number_to_currency(@record.total_price) %>
+</p>
+
+
+<p>
   <strong>Supplier:</strong>
   <%= @record.supplier %>
 </p>
+
+<p>
+  <strong>Part Number:</strong>
+  <%= @record.part_number %>
+</p>
+
 
 <p>
   <strong>Link:</strong>

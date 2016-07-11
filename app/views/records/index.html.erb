@@ -1,17 +1,29 @@
-<div class="row">
-  <div class="col-lg-2">
-    <div class="panel panel-primary">
-      <div class="panel-heading">Total Expenses</div>
-      <div class="panel-footer"><%= number_to_currency(@total_expenses) %></div>
-    </div>
-  </div>
-</div>
 <h1>
- <%= button_to "Export As CSV", {action: "index", format:"csv"}, method:"get", class:"btn btn-primary pull-right" %>
  Records | 
 <small><%= link_to 'Request Item', new_record_path %></small>
 </h1>
-
+<hr>
+<div class="row">
+ <%= button_to "Export As CSV", {action: "index", format:"csv"}, method:"get", class:"btn btn-primary pull-right" %>
+  <div class="col-lg-3">
+    <div class="panel panel-info">
+      <div class="panel-heading">Expenses</div>
+      <div class="panel-footer"><%= number_to_currency(@total_expenses) %></div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="panel panel-danger">
+      <div class="panel-heading">Revenue</div>
+      <div class="panel-footer"><%= number_to_currency(@total_expenses) %></div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="panel panel-success">
+      <div class="panel-heading">Balance</div>
+      <div class="panel-footer"><%= number_to_currency(@total_expenses) %></div>
+    </div>
+  </div>    
+</div>
 <hr>
 
 <p>
