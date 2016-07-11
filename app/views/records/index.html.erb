@@ -6,7 +6,12 @@
     </div>
   </div>
 </div>
-<h1>Records | <small><%= link_to 'Request Item', new_record_path %></small></h1>
+<h1>
+ <%= button_to "Export As CSV", {action: "index", format:"csv"}, method:"get", class:"btn btn-primary pull-right" %>
+ Records | 
+<small><%= link_to 'Request Item', new_record_path %></small>
+</h1>
+
 <hr>
 
 <p>
@@ -43,7 +48,7 @@ Show:
         <td><%= record.description %></td>
         <td><%= record.category.capitalize %></td>
         <td><%= record.supplier %></td>
-        <td><%= number_to_currency(record.price*record.quantity) %></td>
+        <td><%= number_to_currency(record.total_price) %></td>
         <td>
         <% if record.status == "pending" %>
           <p class="bg-warning">
@@ -57,7 +62,10 @@ Show:
         <%= record.status.capitalize %></p>
         </td>
         <td>
-          <b><%= link_to 'Details', record %></b>
+          <% if current_user.try(:admin?) %>
+            <p><b><%= link_to 'Review', edit_record_path(record) %></b></p>
+          <% end %>
+          <p><b><%= link_to 'Details', record %></b></p>
         </td>
       </tr>
     <% end %>

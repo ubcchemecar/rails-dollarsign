@@ -22,7 +22,7 @@ class Admin::UsersController < ApplicationController
       @users = User.where(approved: false)
     else
       @users = User.all
-    end    
+    end
   end
 
   def show

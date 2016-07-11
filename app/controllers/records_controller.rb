@@ -12,7 +12,7 @@ class RecordsController < ApplicationController
   end
 
   def require_permission
-    if !current_user.admin? and current_user.id != @record.user_id
+    if !current_user.try(:admin?) and current_user.id != @record.user_id
       redirect_to_back
       flash[:alert] = "You do not have permission to edit this record."
     end
@@ -32,6 +32,10 @@ class RecordsController < ApplicationController
       @records = Record.rejected     
     else
       @records = Record.all
+    end
+    respond_to do |format|
+      format.html
+      format.csv { send_data Record.all.to_csv, filename: "ubc-chemecar-#{Date.today}.csv" }
     end
   end
 
@@ -99,6 +103,6 @@ class RecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def record_params
-      params.require(:record).permit(:item, :description, :price, :quantity, :supplier, :link, :status, :category)
+      params.require(:record).permit(:item, :description, :price, :quantity, :part_number, :supplier, :link, :status, :category)
     end
 end
