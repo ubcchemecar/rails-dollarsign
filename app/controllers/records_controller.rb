@@ -22,6 +22,9 @@ class RecordsController < ApplicationController
   # GET /records.json
   def index
     @total_expenses = Record.sum("quantity*price")
+    @total_revenue = 25000
+    @budget_balance = @total_revenue - @total_expenses
+    
     if params[:status] == "pending"
       @records = Record.pending
     elsif params[:status] == "reviewed"
