@@ -1,10 +1,10 @@
+<%= button_to "Export As CSV", {action: "index", format:"csv"}, method:"get", class:"btn btn-primary pull-right" %>
 <h1>
  Records | 
 <small><%= link_to 'Request Item', new_record_path %></small>
 </h1>
 <hr>
 <div class="row">
- <%= button_to "Export As CSV", {action: "index", format:"csv"}, method:"get", class:"btn btn-primary pull-right" %>
   <div class="col-lg-3">
     <div class="panel panel-info">
       <div class="panel-heading">Revenue ($CAD)</div>
