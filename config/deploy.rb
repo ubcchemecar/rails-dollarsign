@@ -2,7 +2,7 @@
 # Change these
 server '159.203.7.217', port: 22, roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'https://github.com/ubcchemecar/rails-dollarsign.git'
+set :repo_url,        'git@github.com:ubcchemecar/rails-dollarsign.git'
 set :application,     'rails-dollarsign'
 set :user,            'deploy'
 set :deploy_to,       "/home/deploy/rails-dollarsign"
