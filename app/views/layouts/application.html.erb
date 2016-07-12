@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Finance | UBC Chem-E-Car</title>
+  <link rel="shortcut icon" href="http://www.ubcchemecar.com/images/ico/favicon.ico">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.css">  
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -22,8 +23,8 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/records">Records</a></li>
-        <li><%= link_to 'Users', admin_users_path %></li>
+        <li><a href="/records">Financial Records</a></li>
+        <li><%= link_to 'Team Roster', admin_users_path %></li>
       </ul>
       <p class="navbar-text pull-right">
       <% if user_signed_in? %>

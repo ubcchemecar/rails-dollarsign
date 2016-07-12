@@ -21,6 +21,10 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+  <div class="field">
+    <%= f.label :team %><br>
+    <%= f.select :team, User.teams.keys %>
+  </div>  
   <% if current_user.try(:admin?) %>
   <div class="field">
     <%= f.label :approved %><br>
@@ -31,4 +35,3 @@
     <%= f.submit %>
   </div>
 <% end %>
-
