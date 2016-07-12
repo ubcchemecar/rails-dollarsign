@@ -13,7 +13,17 @@
   <%= @user.team %>
 </p>
 
-<% if current_user.admin? %>
+<p>
+  <strong>Approved?</strong>
+  <%= @user.approved %>
+</p>
+
+<p>
+  <strong>Admin?</strong>
+  <%= @user.admin %>
+</p>
+
+<% if current_user.try(:admin?) %>
   <%= link_to 'Edit', edit_admin_user_path(@user) %> |
 <% end %>
 
