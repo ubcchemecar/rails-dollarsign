@@ -4,7 +4,7 @@ class Record < ActiveRecord::Base
   enum status: [:pending, :reviewed, :approved, :rejected]
   enum category: {electrical: 0, battery: 1, chemical: 2, mechanical: 3, conference: 4, outreach: 5, misc: 6}
 
-  scope :not_rejected, -> { where.not(status: rejected) }
+  scope :not_rejected, -> { where.not(status: 'rejected') }
 
   validates :item, presence: true
   validates :description, presence: true
