@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  enum team: [:admin, :battery, :electrical, :chemical, :mechanical, :misc]
+  enum team: [:administrator, :battery, :electrical, :chemical, :mechanical, :misc]
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
