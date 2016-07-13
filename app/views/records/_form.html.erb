@@ -12,15 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :item %><br>
     <%= f.text_field :item %>
   </div>
   <div class="field">
-    <%= f.label "Description (Flag if buying in-store):" %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, placeholder: "Flag if buying in-store!" %>
   </div>
   <div class="field">
-    <%= f.label :category %><br>
     <%= f.select :category, Record.categories.keys %>
   </div>  
   <div class="field">
@@ -28,24 +25,19 @@
     <%= f.number_field :price, :class => 'text_field', :step => 0.01 %>
   </div>
   <div class="field">
-    <%= f.label :quantity %><br>
     <%= f.number_field :quantity %>
   </div>
   <div class="field">
-    <%= f.label :supplier %><br>
     <%= f.text_field :supplier %>
   </div>
   <div class="field">
-    <%= f.label :part_number %><br>
-    <%= f.text_field :part_number %>
+    <%= f.text_field :part_number, placeholder: '' %>
   </div>  
   <div class="field">
-    <%= f.label :link %><br>
     <%= f.text_field :link %>
   </div>
   <% if current_user.try(:admin?) %>
   <div class="field">
-    <%= f.label :status %><br>
     <%= f.select :status, Record.statuses.keys %>
   </div>
   <% end %>
