@@ -60,6 +60,7 @@ Show:
         <td><%= record.description %></td>
         <td><%= record.category.capitalize %></td>
         <td><%= record.supplier %></td>
+        <td><%= record.part_number %></td>
         <td><%= number_to_currency(record.total_price) %></td>
         <td>
         <% if record.status == "pending" %>
