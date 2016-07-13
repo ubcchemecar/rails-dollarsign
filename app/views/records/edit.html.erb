@@ -2,7 +2,9 @@
 
 <div class="col-xs-12 col-md-6">
   <%= render 'form' %>
+  <h2>
+    <%= link_to 'Show', @record %> |
+    <%= link_to 'Back', records_path %>
+  </h2>
 </div>
 
-<%= link_to 'Show', @record %> |
-<%= link_to 'Back', records_path %>
