@@ -34,7 +34,7 @@ class RecordsController < ApplicationController
     elsif params[:status] == "rejected"
       @records = Record.rejected
     else
-      @records = Record.not_rejected.all
+      @records = Record.where.not(status: 3)
     end
     respond_to do |format|
       format.html
