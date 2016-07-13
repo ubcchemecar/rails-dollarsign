@@ -21,7 +21,7 @@
     <%= f.select :category, Record.categories.keys %>
   </div>  
   <div class="field">
-    <%= f.number_field :price, placeholder:"Unit Price ($CAD)" :class => 'text_field', :step => 0.01 %>
+    <%= f.number_field :price, :placeholder => "Unit Price ($CAD)", :class => 'text_field', :step => 0.01 %>
   </div>
   <div class="field">
     <%= f.number_field :quantity %>
