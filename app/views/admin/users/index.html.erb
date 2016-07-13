@@ -9,7 +9,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Email</th>
+      <th>Team</th>
       <th>Approved</th>
       <th colspan="3"></th>
     </tr>
@@ -19,7 +19,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-        <td><%= user.email %></td>
+        <td><%= user.team %></td>
         <td>
         <% if user.approved == "true" %>
           <p class="bg-success">
