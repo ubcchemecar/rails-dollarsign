@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.secret_key = 'gofuckyourself' if Rails.env.production?
+  config.secret_key = 'gofuckyourself'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -251,8 +251,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :facebook, '1753534421570626', '3cac148394796ef2b4d2ecc8f298caaa'
-  # config.omniauth :facebook, '1571425196486204', '66000998ef502188040359d512eb70e7'
+  # config.omniauth :facebook, '1753534421570626', '3cac148394796ef2b4d2ecc8f298caaa'
+  config.omniauth :facebook, '1571425196486204', '66000998ef502188040359d512eb70e7'
 
   # idgaf
 
