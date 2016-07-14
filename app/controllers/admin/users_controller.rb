@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  # before_action :require_permission
+  before_action :require_permission, only: [:update, :edit, :show]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def redirect_to_back(default = records_path)
@@ -13,7 +13,7 @@ class Admin::UsersController < ApplicationController
   def require_permission
     if !current_user.try(:admin?)
       redirect_to_back
-      flash[:alert] = "Get out, you do not have permission to view users."
+      flash[:alert] = "Get out, you do not have permission."
     end
   end
 
@@ -21,7 +21,7 @@ class Admin::UsersController < ApplicationController
     if params[:approved] == "false"
       @users = User.where(approved: false)
     else
-      @users = User.all
+      @users = User.where(approved: true)
     end
   end
 
@@ -51,7 +51,7 @@ class Admin::UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :approved, :team)
+      params.require(:user).permit(:name, :email, :approved, :team, :biography)
     end
 
 end

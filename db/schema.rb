@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160712031032) do
+ActiveRecord::Schema.define(version: 20160714031905) do
 
   create_table "records", force: :cascade do |t|
     t.string   "item"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160712031032) do
     t.boolean  "admin",                  default: false
     t.boolean  "approved",               default: false, null: false
     t.integer  "team",                   default: 0
+    t.text     "biography"
   end
 
   add_index "users", ["approved"], name: "index_users_on_approved"

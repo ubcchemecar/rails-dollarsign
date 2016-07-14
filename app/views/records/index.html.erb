@@ -6,7 +6,7 @@
 <hr>
 <div class="row">
   <div class="col-lg-3">
-    <div class="panel panel-info">
+    <div class="panel panel-success">
       <div class="panel-heading">Revenue ($CAD)</div>
       <div class="panel-footer"><%= number_to_currency(@total_revenue) %></div>
     </div>
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="col-lg-3">
-    <div class="panel panel-success">
+    <div class="panel panel-info">
       <div class="panel-heading">Balance ($CAD)</div>
       <div class="panel-footer"><%= number_to_currency(@budget_balance) %></div>
     </div>
@@ -39,7 +39,8 @@ Show:
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Item</th>
+      <th>Item ID</th>
+      <th>Item Name</th>
       <th>Date</th>
       <th>Requested By</th>
       <th>Description</th>
@@ -55,6 +56,7 @@ Show:
   <tbody>
     <% @records.each do |record| %>
       <tr>
+        <td><%= record.id %></td>
         <td><%= record.item %></td>
         <td><%= record.created_at.strftime("%d %b %Y") %></td>
         <td><%= record.user_name %></td>

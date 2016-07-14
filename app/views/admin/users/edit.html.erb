@@ -22,6 +22,9 @@
   <div class="field">
     <%= f.select :team, User.teams.keys %>
   </div>  
+  <div class="field">
+    <%= f.text_area :biography, placeholder: "Linked to website profile" %>
+  </div>  
   <% if current_user.try(:admin?) %>
   <div class="field">
     <%= f.check_box :approved %>

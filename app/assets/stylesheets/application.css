@@ -22,3 +22,7 @@ th { border-bottom: 1px solid #DDD; }
 .white a {
   color: white;
 }
+
+a {
+    color: inherit;
+}

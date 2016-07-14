@@ -1,8 +1,11 @@
-<h1>Users</h1>
+<h1>Team Roster
+<small>2016/2017 UBC Chem-E-Car Members</small></h1>
 <br>
 
+<% if current_user.try(:admin?) %> 
 <%= link_to 'All Users', action:"index" %> | 
 <%= link_to 'Users Awaiting Approval', action:"index", approved:"false" %>
+<% end %>
 
 <hr>
 <table class="table table-striped">
@@ -10,7 +13,8 @@
     <tr>
       <th>Name</th>
       <th>Team</th>
-      <th>Approved</th>
+      <th>Bio</th>
+      <th>Active</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +24,7 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.team %></td>
+        <td><%= user.biography %></td>
         <td>
         <% if user.approved == "true" %>
           <p class="bg-success">
@@ -29,7 +34,7 @@
         <%= user.approved %></p>
         </td>
         <td>
-        <%= link_to "Edit", admin_user_path(user) %>
+        <%= link_to "Details", admin_user_path(user) %>
         </td>
       </tr>
     <% end %>
