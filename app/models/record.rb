@@ -1,7 +1,7 @@
 class Record < ActiveRecord::Base
   belongs_to :user
   delegate :name, :to => :user, :prefix => :user, :allow_nil => true
-  enum status: [:pending, :reviewed, :approved, :rejected]
+  enum status: [:pending, :reviewed, :approved, :rejected, :received]
   enum category: {electrical: 0, battery: 1, chemical: 2, mechanical: 3, conference: 4, outreach: 5, misc: 6}
   
   validates :item, presence: true
