@@ -15,7 +15,7 @@
     <%= f.text_field :item %>
   </div>
   <div class="field">
-    <%= f.text_area :description, placeholder: "Flag if buying in-store!" %>
+    <%= f.text_area :description, placeholder: "Flag if buying in-store!", rows: 8 %>
   </div>
   <div class="field">
     <%= f.select :category, Record.categories.keys %>
