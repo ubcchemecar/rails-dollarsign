@@ -5,16 +5,19 @@
 </h1>
 <hr>
 <div class="row">
-  <div class="col-lg-3">
-    <div class="panel panel-success">
-      <div class="panel-heading">Revenue ($CAD)</div>
-      <div class="panel-footer"><%= number_to_currency(@total_revenue) %></div>
-    </div>
-  </div>
+
   <div class="col-lg-3">
     <div class="panel panel-danger">
       <div class="panel-heading">Expenses ($CAD)</div>
       <div class="panel-footer"><%= number_to_currency(@total_expenses) %></div>
+    </div>
+  </div>
+
+  <% if current_user.try(:admin?) %>
+  <div class="col-lg-3">
+    <div class="panel panel-success">
+      <div class="panel-heading">Revenue ($CAD)</div>
+      <div class="panel-footer"><%= number_to_currency(@total_revenue) %></div>
     </div>
   </div>
   <div class="col-lg-3">
@@ -23,6 +26,8 @@
       <div class="panel-footer"><%= number_to_currency(@budget_balance) %></div>
     </div>
   </div>    
+  <% end %>
+
 </div>
 <hr>
 
