@@ -23,6 +23,12 @@ class Admin::UsersController < ApplicationController
     else
       @users = User.where(approved: true)
     end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @users, :only => [:id, :biography] }
+    end    
+  
   end
 
   def show
