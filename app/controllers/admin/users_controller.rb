@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_action :require_permission, only: [:update, :edit, :show]
+  before_action :require_permission, only: [:update, :edit]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def redirect_to_back(default = records_path)
@@ -11,7 +11,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def require_permission
-    if !current_user.try(:admin?) and current_user.id != @user.id
+    if !current_user.try(:admin?)
       redirect_to_back
       flash[:alert] = "Get out, you do not have permission."
     end
@@ -26,6 +26,10 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.json { render json: @user, :only => [:id, :biography] }
+    end
   end
 
   def edit

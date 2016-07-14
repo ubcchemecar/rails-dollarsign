@@ -23,7 +23,7 @@
   <%= @user.admin %>
 </p>
 
-<% if current_user.id == @user.id or current_user.try(:admin?) %>
+<% if current_user.try(:id) == @user.id or current_user.try(:admin?) %>
   <%= link_to 'Edit', edit_admin_user_path(@user) %> |
 <% end %>
 
