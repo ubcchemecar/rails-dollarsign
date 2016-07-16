@@ -35,6 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'bootstrap_form'
+gem 'best_in_place', '~> 3.0.1'
 
 gem 'sqlite3'
 

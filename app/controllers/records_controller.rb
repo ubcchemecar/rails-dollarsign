@@ -74,22 +74,22 @@ class RecordsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /records/1
-  # PATCH/PUT /records/1.json
   def update
     respond_to do |format|
       if @record.update(record_params)
+        flash[:success] = "Record Updated"
         format.html { redirect_to @record, notice: 'Record was successfully updated.' }
-        format.json { render :show, status: :ok, location: @record }
+        format.json { respond_with_bip(@record) }
+        # format.json { render :show, status: :ok, location: @record }
       else
+        flash[:error] = "Record Update Error"
         format.html { render :edit }
-        format.json { render json: @record.errors, status: :unprocessable_entity }
+        format.json { respond_with_bip(@record) }
+        # format.json { render json: @record.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /records/1
-  # DELETE /records/1.json
   def destroy
     @record.destroy
     respond_to do |format|
