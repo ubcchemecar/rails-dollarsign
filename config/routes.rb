@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  resources :records
+  resources :records do
+    get 'upload', on: :new
+  end
 
   namespace :admin do
     resources :users

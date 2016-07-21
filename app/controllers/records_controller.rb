@@ -21,7 +21,7 @@ class RecordsController < ApplicationController
   # GET /records
   # GET /records.json
   def index
-    @total_expenses = Record.sum("quantity*price")
+    @total_expenses = Record.where.not(status: 3).sum("quantity*price")
     @total_revenue = 25000
     @budget_balance = @total_revenue - @total_expenses
     
@@ -34,7 +34,7 @@ class RecordsController < ApplicationController
     elsif params[:status] == "rejected"
       @records = Record.rejected
     else
-      @records = Record.where.not(status: 3)
+      @records = Record.where.not(status: 3).order! 'created_at DESC'
     end
     respond_to do |format|
       format.html
