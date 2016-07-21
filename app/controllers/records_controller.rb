@@ -21,7 +21,9 @@ class RecordsController < ApplicationController
   # GET /records
   # GET /records.json
   def index
+    approved_stages = [2,4]
     @total_expenses = Record.where.not(status: 3).sum("quantity*price")
+    @approved_expenses = Record.where(:status => approved_stages).sum("quantity*price") 
     @total_revenue = 25000
     @budget_balance = @total_revenue - @total_expenses
     
@@ -30,7 +32,7 @@ class RecordsController < ApplicationController
     elsif params[:status] == "reviewed"
       @records = Record.reviewed
     elsif params[:status] == "approved"
-      @records = Record.approved      
+      @records = Record.where(:status => approved_stages)      
     elsif params[:status] == "rejected"
       @records = Record.rejected
     else
