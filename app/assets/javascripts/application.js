@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require best_in_place
 //= require turbolinks
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
 
 $(document).ready(function() {
