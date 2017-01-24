@@ -13,7 +13,7 @@ class Admin::UsersController < ApplicationController
   def require_permission
     if !current_user.try(:admin?)
       redirect_to_back
-      flash[:alert] = "Get out, you do not have permission."
+      flash[:alert] = "User authentication failed, you need to check your privilege."
     end
   end
 
