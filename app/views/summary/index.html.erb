@@ -1,3 +1,14 @@
 <div class="row">
-  <%= line_chart Record.group_by_day(:created_at) %>
+  <div class="col-md-6">
+    <h2> Items Ordered </h2>
+    <p>
+    <%= line_chart Record.group_by_week(:created_at) %>
+    </p>
+  </div>
+  <div class="col-md-6">
+    <h2> Spending Per Month </h2>
+    <p>
+    <%= line_chart Record.group_by_month(:created_at, "sum", "price*quantity") %>
+    </p>
+  </div>  
 </div>
