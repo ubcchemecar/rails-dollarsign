@@ -8,7 +8,7 @@
   <div class="col-md-6">
     <h3> Spending Per Month </h3>
     <p>
-    <%= line_chart Record.group_by_month(:created_at, "sum", "price*quantity", format: "%d %b"), discrete: true, library: { hAxis: { format: 'MM/dd' } } %>
+    <%= line_chart Record.group_by_month(:created_at, "sum", "price*quantity") %>
     </p>
   </div>  
 </div>
